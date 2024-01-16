@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { BooksDTO } from './api.service.types';
+import { BookDTO, BooksDTO } from './api.service.types';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +13,9 @@ export class ApiService {
 
   getBooks(): Observable<BooksDTO> {
     return this.http.get<BooksDTO>(`${this.baseURL}/books`)
+  }
+
+  getBookBySlug(slug: string): Observable<BookDTO> {
+    return this.http.get<BookDTO>(`${this.baseURL}/books/${slug}`)
   }
 }

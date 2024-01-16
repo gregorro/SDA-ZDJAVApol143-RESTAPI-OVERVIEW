@@ -15,13 +15,24 @@ export class BasicInfoComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   books: BooksDTO = []
+  bookToShow: BooksDTO = []
+
+  page: number = 0;
+  limit: number = 20
+
+  totalElements: number = 0
 
   ngOnInit(): void {
-
     this.apiService.getBooks().subscribe((books: BooksDTO) => {
-      this.books = books.filter((_: Book, index: number ) => index < 100);
+      this.books = books;
+      this.totalElements = books.length;
+      this.setBookPart(0)
     })
+  }
 
+  setBookPart(page: number): void{
+    this.page = page;
+    this.bookToShow = this.books.filter((_: Book, index: number) => index >= page * this.limit && index < (page+1) * this.limit)
   }
 
 

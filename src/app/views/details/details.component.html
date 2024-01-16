@@ -1,1 +1,4 @@
-<p>details works!</p>
+<div *ngIf="bookDetails">
+  <h2>{{bookDetails.title}}</h2>
+  <app-book-details [book]="bookDetails"></app-book-details>
+</div>

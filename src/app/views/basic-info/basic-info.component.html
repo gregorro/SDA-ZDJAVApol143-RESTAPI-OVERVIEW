@@ -1,5 +1,9 @@
 <h2>Books list</h2>
 
+<div>
+  <button [disabled]="page === 0" (click)="setBookPart(page-1)">Preview page</button>
+  <button [disabled]="page*limit > totalElements" (click)="setBookPart(page+1)">Next page</button>
+</div>
 <table>
   <thead>
     <tr>
@@ -12,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of books">
+    <tr *ngFor="let book of bookToShow">
       <td>{{book.title}}</td>
       <td>{{book.author}}</td>
       <td><img [ngStyle]="{height: '50px'}" [src]="book.simple_thumb" [alt]="book.title"></td>
