@@ -1,1 +1,25 @@
-<p>basic-info works!</p>
+<h2>Books list</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Photo</th>
+      <th>Kind</th>
+      <th>Link</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td><img [ngStyle]="{height: '50px'}" [src]="book.simple_thumb" [alt]="book.title"></td>
+      <td>{{book.kind}}</td>
+      <td><a target="_blank" [href]="book.url">Book site</a></td>
+      <td><a [routerLink]="'details/' + book.slug">Details</a></td>
+    </tr>
+  </tbody>
+</table>
+

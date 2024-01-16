@@ -14,7 +14,7 @@ export const routes: Routes = [
         component: BasicInfoComponent
       },
       {
-        path: ':id',
+        path: 'details/:slug',
         component: DetailsComponent
       },
     ]

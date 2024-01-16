@@ -11,5 +11,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class MainComponent {
   author = 'Grzegorz';
-  restApiName = 'unknown'
+  restApiName = 'wolnelektury api overview'
 }
